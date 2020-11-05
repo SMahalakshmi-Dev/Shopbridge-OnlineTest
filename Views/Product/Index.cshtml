@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Shopbridge.Models.mvcProductmodel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("AddorEdit","Product")" ><i class="fa fa-plus"></i>Create New </a> 
+</p>
+<table class="table table-striped">
+    <thead class ="table-heading">
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.prodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prodDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prodImage)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.prodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prodDesc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prodImage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
